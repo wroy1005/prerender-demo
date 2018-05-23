@@ -11,6 +11,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
+const PuppeteerRenderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
 const env = require('../config/prod.env')
 
@@ -126,7 +127,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       routes: [ '/', '/foo', '/bar' ],
       // The actual renderer to use. (Feel free to write your own)
       // Available renderers: https://github.com/Tribex/prerenderer/tree/master/renderers
-      renderer: {
+      renderer: new PuppeteerRenderer({
         // // Optional - The name of the property to add to the window object with the contents of `inject`.
         // injectProperty: '__PRERENDER_INJECTED',
         // // Optional - Any values you'd like your app to have access to via `window.injectProperty`.
@@ -134,10 +135,10 @@ const webpackConfig = merge(baseWebpackConfig, {
         //   foo: 'bar'
         // },
         // // eg, with `document.dispatchEvent(new Event('custom-render-trigger'))`
-        captureAfterDocumentEvent: 'custom-render-trigger',
+        // captureAfterDocumentEvent: 'custom-render-trigger',
         // // Optional - Wait to render until the specified element is detected using `document.querySelector`
-        renderAfterElementExists: '#app',
-      }
+        renderAfterElementExists: '#test',
+      })
     })
 
   ]

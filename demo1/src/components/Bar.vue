@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="test">
     <h1>this is from Bar page</h1>
     <div>
       <h1>{{post.title}}</h1>
@@ -21,7 +21,7 @@ export default {
   },
 
   mounted() {
-
+    document.dispatchEvent(new Event('custom-render-trigger'))
     setTimeout( () => {
       this.getPost();
     }, 2000 )
