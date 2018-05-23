@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>demo1</title>
+</head>
+
+<body>
+ 
+    <div id="app">
+      
+      <svg width="750" height="191" class="svgclz">
+        <circle cx="95" cy="102" r="63" fill="#edeff0" mask="url(#shining)" />
+        <rect width="160" height="35" x="190" y="45" fill="#edeff0" mask="url(#shining)" />
+        <rect width="400" height="35" x="190" y="90" fill="#edeff0" mask="url(#shining)" />
+        <line x1="0" y1="190" x2="750" y2="190" stroke="#edeff0"></line>
+        <defs>
+          <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <animate id="color" attributeName="stop-color" color="#fff" dur="1.5s" begin="0" />
+            <stop stop-color="white" offset="-10%">
+              <animate attributeName="offset" values="-.05;.95" dur="1.5s" begin="color.end" repeatCount="indefinite" />
+            </stop>
+            <stop stop-color="black" offset="-5%">
+              <animate attributeName="offset" values="0;1" dur="1.5s" begin="color.end" repeatCount="indefinite" />
+            </stop>
+            <stop stop-color="white" offset="0%">
+              <animate attributeName="offset" values=".05;1.05" dur="1.5s" begin="color.end" repeatCount="indefinite" />
+            </stop>
+          </linearGradient>
+          <mask id="shining">
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#shine)" />
+          </mask>
+        </defs>
+      </svg>
+
+  </div>
+
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
